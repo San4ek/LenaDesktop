@@ -13,4 +13,8 @@ public class UserConfig {
     public static void setUser(User user) {
         UserConfig.user = user;
     }
+
+    public static void clearUser() {
+        setUser(null);
+    }
 }

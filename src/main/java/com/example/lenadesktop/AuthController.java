@@ -1,5 +1,6 @@
 package com.example.lenadesktop;
 
+import com.example.lenadesktop.configs.FxmlConfig;
 import com.example.lenadesktop.configs.HttpConfig;
 import com.example.lenadesktop.configs.UserConfig;
 import com.example.lenadesktop.models.CredentialsModel;
@@ -11,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
 import java.net.URL;
 
 import java.util.ResourceBundle;
@@ -40,7 +42,7 @@ public class AuthController implements Initializable {
 
                 UserConfig.setUser(user);
 
-                System.out.println(UserConfig.getUser());
+                FxmlConfig.setScene("ActivesList.fxml");
             } catch (RequestException e) {
                 errorLabel.setText(e.getMessage());
             }
