@@ -37,8 +37,6 @@ public class ActivesListController implements Initializable {
     @FXML
     private TableColumn<ActivesRequestModel, Long> numberColumn;
 
-    private List<ActivesRequestModel> activesList=new ArrayList<>();
-
     private final ObservableList<ActivesRequestModel> data = FXCollections.observableArrayList();
 
     @Override
@@ -51,12 +49,10 @@ public class ActivesListController implements Initializable {
         });
 
         try {
-            activesList.addAll(List.of(HttpConfig.sendGetRequest("/active", ActivesRequestModel[].class)));
+           data.addAll(List.of(HttpConfig.sendGetRequest("/active/all", ActivesRequestModel[].class)));
         } catch (RequestException e) {
             errorLabel.setText(e.getMessage());
         }
-
-        data.addAll(activesList);
 
         numberColumn.setCellValueFactory(new PropertyValueFactory<>("number"));
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -72,7 +68,8 @@ public class ActivesListController implements Initializable {
 
             row.setOnMouseClicked(mouseEvent -> Optional.ofNullable(row.getItem()).ifPresent(rowData -> {
                 if (mouseEvent.getClickCount() == 2 && mouseEvent.getButton().name().equals(MouseButton.PRIMARY.name()) && rowData.equals(activesTable.getSelectionModel().getSelectedItem())) {
-                    System.out.println("Work");
+                    ActiveController.setActiveId(row.getItem().getNumber());
+                    FxmlConfig.setScene("Active.fxml");
                 }
             }));
 
