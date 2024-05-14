@@ -5,6 +5,7 @@ import com.example.lenadesktop.configs.FxmlConfig;
 import com.example.lenadesktop.configs.HttpConfig;
 import com.example.lenadesktop.configs.UserConfig;
 import com.example.lenadesktop.models.ActivesForSendSmallModel;
+import com.example.lenadesktop.models.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -50,6 +51,8 @@ public class ActivesListController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        usersBtn.setVisible(!UserConfig.getUser().getRole().equals(User.Role.USER));
 
         usersBtn.setOnAction(event -> {
             FxmlConfig.setScene("UsersList.fxml");
