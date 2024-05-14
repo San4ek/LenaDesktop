@@ -1,5 +1,6 @@
-package com.example.lenadesktop;
+package com.example.lenadesktop.controllers;
 
+import com.example.lenadesktop.exceptions.RequestException;
 import com.example.lenadesktop.configs.FxmlConfig;
 import com.example.lenadesktop.configs.HttpConfig;
 import com.example.lenadesktop.configs.UserConfig;
@@ -12,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import java.io.IOException;
 import java.net.URL;
 
 import java.util.ResourceBundle;

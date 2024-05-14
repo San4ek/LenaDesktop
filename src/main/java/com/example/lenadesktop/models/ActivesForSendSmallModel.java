@@ -1,6 +1,6 @@
 package com.example.lenadesktop.models;
 
-public class ActivesRequestModel {
+public class ActivesForSendSmallModel {
 
     private long number;
 

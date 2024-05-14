@@ -1,6 +1,6 @@
 package com.example.lenadesktop.configs;
 
-import com.example.lenadesktop.RequestException;
+import com.example.lenadesktop.exceptions.RequestException;
 import com.example.lenadesktop.models.ErrorResponse;
 
 import java.io.IOException;
@@ -42,7 +42,6 @@ public class HttpConfig {
 
             return ObjectMapperConfigs.getObjectMapper().readValue(httpResponse.body(), cClass);
         } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
             throw new RequestException("Bad connection!");
         }
     }

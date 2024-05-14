@@ -1,17 +1,20 @@
 package com.example.lenadesktop.models;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
-public class ActionModel {
+public class ActionForSendModel {
 
-    public ActionModel(String state, String dateTime) {
+    public ActionForSendModel() {
+    }
+
+    public ActionForSendModel(String state, Date dateTime) {
         this.state = state;
         this.dateTime = dateTime;
     }
 
     private String state;
 
-    private String dateTime;
+    private Date dateTime;
 
     public String getState() {
         return state;
@@ -21,11 +24,11 @@ public class ActionModel {
         this.state = state;
     }
 
-    public String getDateTime() {
+    public Date getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(String dateTime) {
+    public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
 }

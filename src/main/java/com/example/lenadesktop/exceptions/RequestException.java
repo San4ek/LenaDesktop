@@ -1,4 +1,4 @@
-package com.example.lenadesktop;
+package com.example.lenadesktop.exceptions;
 
 public class RequestException extends Exception{
     public RequestException() {
